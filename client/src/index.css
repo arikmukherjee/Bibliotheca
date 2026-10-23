@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory font-sans text-ink antialiased;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(210, 164, 75, 0.055), transparent 32rem),
+      radial-gradient(circle at 85% 0%, rgba(44, 93, 72, 0.045), transparent 30rem);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(210, 164, 75, 0.28);
+    color: #1b2621;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line/80 bg-parchment shadow-card;
+  }
+
+  .card-hover {
+    @apply transition duration-200 hover:-translate-y-0.5 hover:border-forest-200 hover:shadow-lift;
+  }
+
+  .rule {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-line to-transparent;
+  }
+
+  .eyebrow {
+    @apply text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-gold-600;
+  }
+
+  .label {
+    @apply text-xs font-semibold uppercase tracking-[0.08em] text-muted;
+  }
+
+  .prose-library {
+    @apply text-[0.92rem] leading-7 text-ink/80;
+  }
+
+  .prose-library p + p {
+    @apply mt-4;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #e4ddcc transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: #d9d0bc;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ivory;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

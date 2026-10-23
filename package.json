@@ -1,0 +1,28 @@
+{
+  "name": "bibliotheca",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bibliotheca - Every Book. One Library. Smart book cataloging and digital library management.",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c green,blue \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w server && npm run build -w client",
+    "start": "npm run start -w server",
+    "test": "npm run test -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w client",
+    "db:migrate": "npm run db:migrate -w server",
+    "db:local:init": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/local-mysql.ps1 init",
+    "db:local:start": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/local-mysql.ps1 start",
+    "db:local:stop": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/local-mysql.ps1 stop",
+    "db:local:status": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/local-mysql.ps1 status"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

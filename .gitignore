@@ -1,0 +1,20 @@
+node_modules/
+dist/
+build/
+coverage/
+.env
+.env.local
+*.log
+
+# Local runtime data
+server/storage/
+.local/
+client/dist/
+server/dist/
+
+# Tooling/editor
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
